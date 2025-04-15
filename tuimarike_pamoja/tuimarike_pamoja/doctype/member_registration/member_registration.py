@@ -46,7 +46,7 @@ class MemberRegistration(Document):
 					default_company = frappe.defaults.get_user_default("Company")
 					message = (
 							f"Welcome to {default_company}, {first_name}!\n\n"
-							f"Your account has been successfully created. You will receive your login credentials shortly.\n\n"
+							f"Your account has been successfully created. Below are your login credentials.\n\n"
 							f"🔹 Username: {self.mobile_number}\n"
 							f"🔹 Password: {password}\n\n"
 							f"Best regards,\nThe {default_company} Team"
