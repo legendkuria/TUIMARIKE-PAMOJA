@@ -56,7 +56,7 @@ def format_mobile_number(mobile):
 
 
 @frappe.whitelist( allow_guest=True )
-def authenticate_user(usr, pwd):
+def login(usr, pwd):
     try:
         try:
             login_manager = frappe.auth.LoginManager()
