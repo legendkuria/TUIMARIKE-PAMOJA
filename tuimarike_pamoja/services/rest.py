@@ -82,7 +82,8 @@ def login(usr, pwd):
             "api_secret":api_generate,
             "username":user.username,
             "email":user.email,
-            "base_url": frappe.utils.get_url()
+            "base_url": frappe.utils.get_url(),
+            "role_profile": user.role_profile_name if user.role_profile_name else ""
         }
     
     except Exception as e:

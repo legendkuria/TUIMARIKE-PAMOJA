@@ -16,15 +16,9 @@ class MemberRegistration(Document):
 				middle_name = " ".join(name_parts[1:-1]) if len(name_parts) > 2 else ""
 				last_name = name_parts[-1] if len(name_parts) > 1 else ""
 				password = str(random.randint(1000, 9999))
-
-				roles = [
-					"Accounts Manager", "Accounts User", "Stock User", 
-					"Sales Manager", "Sales Master Manager", "Sales User", 
-					"Stock Manager", "Purchase Manager", "Purchase Master Manager", "Purchase User", "System Manager", "Item Manager"
-				]
 				
 				system_modules = frappe.db.get_all("Module Def", fields=["name"])
-				user_modules = ["Buying", "Accounts", "Stock", "Selling", "Core"]
+				user_modules = ["Tuimarike Pamoja", "Core"]
 				block_modules = [{"module": module["name"]} for module in system_modules if module["name"] not in user_modules]
 
 				user_doc = frappe.get_doc({
@@ -34,7 +28,7 @@ class MemberRegistration(Document):
 					"first_name": first_name,
 					"middle_name": middle_name,
 					"last_name": last_name,
-					"roles": [{"role": role} for role in roles],
+					"role_profile_name": "Member",
 					"block_modules":block_modules,
 					"send_welcome_email": 0,
 					"new_password": password
